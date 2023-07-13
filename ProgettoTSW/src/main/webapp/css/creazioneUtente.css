@@ -1,0 +1,68 @@
+.main.flex-container {
+    justify-content: center;
+}
+
+.registration-form-container{
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+    width: 60%;
+    height: 800px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-form-container > h1{
+    color: #003049;
+    margin-top: 40px;
+}
+
+form.flex-container{
+    flex-direction: column;
+    width: 30%;
+    margin-top: 30px;
+}
+
+.form-lable {
+    font-size: 18px;
+    color: #003049;
+    margin: 7px 0;
+}
+
+input[type="text"], input[type="password"]{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #003049;
+    height: 30px;
+    width: 100%;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
+}
+
+input[type="submit"]{
+    border: none;
+    background-color: #003049;
+    color: #fdf0d5;
+    margin-top: 10px;
+    width: 110px;
+    height: 35px;
+    font-size: 18px;
+    align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .registration-form-container{
+        width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+        background-color: transparent;
+    }
+
+    form.flex-container{
+        width: 80%;
+    }
+}

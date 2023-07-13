@@ -1,0 +1,105 @@
+.flex-left-item.image-box{
+    flex: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.flex-right-item.info-box{
+    flex: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.img-container.flex-container{
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.img-container.flex-container img{
+    width: 100%;
+}
+
+.product-header > h2{
+    color: #003049;
+}
+
+.product-image{
+    max-width: 500px;
+    max-height: auto;
+}
+
+.info-container.flex-container{
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    background-color: white;
+    flex-direction: column;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.info-container > h3{
+    color: #003049;
+    margin: 30px 0;
+}
+
+.product-header.flex-container{
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+ul{
+    list-style-type: circle;
+}
+
+div.spec li{
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#last-li{
+    list-style-type: none;
+}
+
+.add-cart-button{
+    background-color: #003049;
+    margin: 30px 0;
+}
+
+.add-cart-button a{
+    color: #fdf0d5;
+}
+
+.add-cart-button a i{
+    margin-right: 5px;
+}
+
+.second-row.flex-container{
+    flex-direction: row;
+    flex: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.product-description-div.flex-container{
+    max-width: 60%;
+    background-color: white;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.product-description{
+    font-size: 18px;
+    font-family: inherit;
+    color: #003049;
+    padding: 30px;
+}
+
+@media screen and (max-width: 768px){
+    .flex-right-item.info-box{
+        margin-top: 50px;
+    }
+}

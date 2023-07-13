@@ -1,0 +1,366 @@
+.filter-header {
+    color: #003049;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.filter-div {
+    max-width: 20%;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 20px;
+    background-color: transparent;
+    max-height: 100px;
+}
+
+.filter-by-name {
+    padding: 0px 20px;
+    margin-bottom: 20px;
+}
+
+.filter-by-value {
+    padding: 0px 20px;
+}
+
+.catalogo-div {
+    max-width: 75%;
+}
+
+.inline {
+    display: inline-flex;
+}
+
+/*TEST funzionante, da commentare con cosa fanno le varie regole*/
+:root {
+    --form-control-color: #780000;
+}
+
+.form-control {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #ffffff;
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(0.2em);
+}
+
+.form-control + .form-control {
+    margin-top: 1em;
+}
+
+.form-control {
+    color: #003049;
+}
+
+input[type="radio"] {
+    /* ...existing styles */
+
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="text"] {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: inherit;
+    border-bottom: 1px solid #669bbc;
+}
+
+input[type="text"]:focus{
+    outline: none;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    border-radius: 4px;
+    background-color: #669bbc;
+    height: 1px;
+    vertical-align: middle;
+}
+
+input[type='range']::-moz-range-track {
+    -moz-appearance: none;
+    border-radius: 4px;
+    background-color: #669bbc;
+    height: 5px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    border-radius: 20px;
+    background-color: #669bbc;
+    border: 1px solid #003049;
+    height: 14px;
+    width: 14px;
+}
+
+input[type='range']::-moz-range-thumb {
+    -moz-appearance: none;
+    border-radius: 20px;
+    background-color: #780000;
+    border: 1px solid #003049;
+    height: 14px;
+    width: 14px;
+}
+
+#close-button {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 25px;
+    color: #003049;
+    margin: 20px;
+    cursor: pointer;
+    align-self: inherit;
+}
+
+.close-filter-tab {
+    justify-content: end;
+}
+
+#open-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 25px;
+    color: #003049;
+    cursor: pointer;
+}
+
+.open-filter-tab.flex-container {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.filter-lable {
+    color: #003049;
+}
+
+#reset-button {
+    border: none;
+    outline: none;
+    background-color: #003049;
+    color: #fdf0d5;
+    font-size: 14px;
+    font-family: inherit;
+    width: 50px;
+    height: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#product-slider.flex-container{
+    flex-direction: row;
+}
+
+/*PRODUCT CARD*/
+a {
+    text-decoration: none;
+}
+
+.product-card {
+    width: 380px;
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 40px auto;
+    background: white;
+    max-height: 750px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    /*padding: 50px;*/
+    background: white;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 30px;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #780000;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: #003049;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: #780000;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #003049;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.product-links {
+    text-align: right;
+}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: #780000;
+}
+
+div.product-details > h4{
+    color: #003049;
+}
+
+/*FINE PRODUCT CARD*/
+
+.error-meaage{
+    width: 100%;
+    background-color: #780000;
+    color: #fdf0d5;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1510px){
+    .filter-div{
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    #reset-button{
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+
+    .catalogo-div{
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    #filter-panel {
+        display: flex;
+        justify-content: center;
+    }
+
+    .filter-div {
+        max-width: 100%;
+        flex-direction: row;
+        margin-top: 0;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        margin-left: 0;
+    }
+
+    body {
+        overflow-x: hidden !important;
+        max-width: 100%;
+    }
+
+    .main.flex-container {
+        max-width: 100%;
+        overflow-x: hidden !important;
+        padding: 0px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1660px){
+    .catalogo-div{
+        max-width: 100%;
+        flex-direction: row;
+    }
+
+    .filter-div{
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .product-card{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .flex-container.product-slider {
+        justify-content: center;
+    }
+}

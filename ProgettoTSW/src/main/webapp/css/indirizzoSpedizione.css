@@ -1,0 +1,65 @@
+.main.flex-container {
+    justify-content: center;
+}
+
+.wrapper{
+    background-color: white;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+    width: 70%;
+    align-items: center;
+    flex-direction: column;
+    height: 800px;
+    margin-top: 50px;
+}
+
+form.flex-container{
+    flex-direction: column;
+    width: 80%;
+    align-items: start;
+    margin-top: 80px;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #003049;
+    color: #003049;
+    background-color: transparent;
+    font-size: 18px;
+    width: 400px;
+}
+
+#provincia, #cap{
+    width: 100px;
+}
+
+input[type="submit"]{
+    border: none;
+    background-color:#003049;
+    color: #fdf0d5;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    align-self: center;
+}
+
+input[type="text"]:focus{
+    outline: none;
+}
+
+label{
+    align-self: start;
+    font-size: 18px;
+}
+
+.total-price{
+    align-self: end;
+    margin: 15px 0;
+}
+
+.wrapper h1{
+    margin: 50px 0;
+}

@@ -1,0 +1,68 @@
+.main.flex-container {
+    justify-content: center;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+    align-items: center;
+    width: 80%;
+    height: 850px;
+    margin-top: 50px;
+}
+
+.field-container{
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.field-container.flex-container{
+    width: 80%;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #003049;
+    color: #003049;
+    background-color: transparent;
+    font-size: 18px;
+    width: 30%;
+}
+
+input[type="submit"]{
+    border: none;
+    background-color:#003049;
+    color: #fdf0d5;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    align-self: start;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
+}
+
+#modIndirizzo.flex-container{
+    flex-direction: column;
+}
+
+h2{
+    color: #003049;
+}
+
+@media screen and (max-width: 768px){
+    input[type="text"], input[type="password"]{
+        border: none;
+        border-bottom: 1px solid #003049;
+        color: #003049;
+        background-color: transparent;
+        font-size: 18px;
+        width: 80%;
+    }
+}
