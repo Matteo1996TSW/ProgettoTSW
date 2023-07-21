@@ -79,11 +79,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + psu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + psu.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">PSU</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + psu.getID() + "\">" + psu.getMarca() + " " + psu.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + psu.getID() +"&type="+ p.getTipo() + "\">" + psu.getMarca() + " " + psu.getModello() + "</a></h4>\n" +
                         "<p>" + psu.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + psu.getPrezzo() + "</div>\n" +
@@ -101,11 +101,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + dissipatore.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + dissipatore.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">Dissipatori</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + dissipatore.getID()+ "\">" + dissipatore.getMarca() + " " + dissipatore.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + dissipatore.getID()+"&type="+ p.getTipo() + "\">" + dissipatore.getMarca() + " " + dissipatore.getModello() + "</a></h4>\n" +
                         "<p>" + dissipatore.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + dissipatore.getPrezzo() + "</div>\n" +
@@ -122,11 +122,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + cpu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + cpu.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">CPU</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + cpu.getID() + "\">" + cpu.getMarca() + " " + cpu.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + cpu.getID() +"&type="+ p.getTipo() + "\">" + cpu.getMarca() + " " + cpu.getModello() + "</a></h4>\n" +
                         "<p>" + cpu.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + cpu.getPrezzo() + "</div>\n" +
@@ -142,11 +142,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         Gpu gpu = (Gpu) p;
         String result = "<div class=\"product-card\">\n" +
                 "<div class=\"product-tumb inner-padding\">\n" +
-                "<img src=\"" + gpu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                "<img src=\"" + gpu.getUrl() + "\" alt=\"\">\n" +
                 "</div>\n" +
                 "<div class=\"product-details\">\n" +
                 "<span class=\"product-catagory\">GPU</span>\n" +
-                "<h4><a href=\"" + path + "?Id=" + gpu.getID()+ "\">" + gpu.getMarca() + " " + gpu.getModello() + "</a></h4>\n" +
+                "<h4><a href=\"" + path + "?Id=" + gpu.getID()+ "&type="+ p.getTipo() +"\">" + gpu.getMarca() + " " + gpu.getModello() + "</a></h4>\n" +
                 "<p>" + gpu.getDescrizione() + "</p>\n" +
                 "<div class=\"product-bottom-details\">\n" +
                 "<div class=\"product-price\">" + gpu.getPrezzo() + "</div>\n" +
@@ -163,11 +163,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + mobo.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + mobo.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">Scheda madre</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + mobo.getID()+ "\">" + mobo.getMarca() + " " + mobo.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + mobo.getID()+ "&type="+ p.getTipo() +"\">" + mobo.getMarca() + " " + mobo.getModello() + "</a></h4>\n" +
                         "<p>" + mobo.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + mobo.getPrezzo() + "</div>\n" +
@@ -184,11 +184,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + hdd.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + hdd.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">Hard disk</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + hdd.getID()+ "\">" + hdd.getMarca() + " " + hdd.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + hdd.getID()+ "&type="+ p.getTipo() +"\">" + hdd.getMarca() + " " + hdd.getModello() + "</a></h4>\n" +
                         "<p>" + hdd.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + hdd.getPrezzo() + "</div>\n" +
@@ -204,11 +204,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         Ssd ssd = (Ssd) p;
         String result = "<div class=\"product-card\">\n" +
                 "<div class=\"product-tumb inner-padding\">\n" +
-                "<img src=\"" + ssd.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                "<img src=\"" + ssd.getUrl() + "\" alt=\"\">\n" +
                 "</div>\n" +
                 "<div class=\"product-details\">\n" +
                 "<span class=\"product-catagory\">Solid state disk</span>\n" +
-                "<h4><a href=\"" + path + "?Id=" + ssd.getID()+ "\">" + ssd.getMarca() + " " + ssd.getModello() + "</a></h4>\n" +
+                "<h4><a href=\"" + path + "?Id=" + ssd.getID()+ "&type="+ p.getTipo() +"\">" + ssd.getMarca() + " " + ssd.getModello() + "</a></h4>\n" +
                 "<p>" + ssd.getDescrizione() + "</p>\n" +
                 "<div class=\"product-bottom-details\">\n" +
                 "<div class=\"product-price\">" + ssd.getPrezzo() + "&euro;</div>\n" +
@@ -225,11 +225,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + ram.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + ram.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">RAM</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + ram.getID()+ "\">" + ram.getMarca() + " " + ram.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + ram.getID()+"&type="+ p.getTipo() + "\">" + ram.getMarca() + " " + ram.getModello() + "</a></h4>\n" +
                         "<p>" + ram.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + ram.getPrezzo() + "</div>\n" +
@@ -246,11 +246,11 @@ public class AsincCatalogPrinter extends HttpServlet {
         String result =
                 "<div class=\"product-card\">\n" +
                         "<div class=\"product-tumb inner-padding\">\n" +
-                        "<img src=\"" + case_.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                        "<img src=\"" + case_.getUrl() + "\" alt=\"\">\n" +
                         "</div>\n" +
                         "<div class=\"product-details\">\n" +
                         "<span class=\"product-catagory\">Case</span>\n" +
-                        "<h4><a href=\"" + path + "?Id=" + case_.getID()+ "\">" + case_.getMarca() + " " + case_.getModello() + "</a></h4>\n" +
+                        "<h4><a href=\"" + path + "?Id=" + case_.getID()+ "&type="+ p.getTipo() +"\">" + case_.getMarca() + " " + case_.getModello() + "</a></h4>\n" +
                         "<p>" + case_.getDescrizione() + "</p>\n" +
                         "<div class=\"product-bottom-details\">\n" +
                         "<div class=\"product-price\">" + case_.getPrezzo() + "</div>\n" +

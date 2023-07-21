@@ -32,7 +32,7 @@
 
 %>
 <div class="main flex-container">
-    <form id="modProd" method="POST" action="Aggiorna" class="flex-container" onsubmit="return validateProductUpdate()" enctype="multipart/form-data">
+    <form id="modProd" method="GET" action="Aggiorna" class="flex-container" onsubmit="return validateProductUpdate()" enctype="multipart/form-data">
         <input type="hidden" name="tipo" id="tipo" value="<%=p.getTipo()%>"/>
         <input type="hidden" name="ID" id="ID" value="<%=p.getID()%>"/>
         <label for="marca">Marca</label>
@@ -118,9 +118,7 @@
                 default:
                     out.println("Errore");
             }
-            out.println("" +
-                    "               <label for=\"image\">Immagine</label>" +
-                    "               <input type=\"file\" name=\"image\" id=\"url\"/>");
+            
             System.out.println(p);
 
         %>

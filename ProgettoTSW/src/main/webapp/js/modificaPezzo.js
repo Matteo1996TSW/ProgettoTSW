@@ -1,5 +1,5 @@
 function validateMarcaAndModello() {
-    let marcaAndModello = /^[a-zA-Z0-9]{1,30}$/;
+    let marcaAndModello = /^[a-zA-Z0-9 ]{1,30}$/;
     if(!(marcaAndModello.test($("#marca").val()))){
         console.error("Err: Marca non valida");
     }

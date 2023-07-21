@@ -14,7 +14,6 @@ import Model.DISSIPATORE_.Dissipatore;
 import Model.DISSIPATORE_.DissipatoreDAO;
 import Model.GPU_.Gpu;
 import Model.GPU_.GpuDAO;
-import Model.ImageManager;
 import Model.MOBO_.Mobo;
 import Model.MOBO_.MoboDAO;
 import Model.PSU_.Psu;
@@ -52,7 +51,7 @@ public class Upload extends HttpServlet {
         Integer Quantita = Integer.parseInt(request.getParameter("quantita"));
         String Tipo = request.getParameter("tipo");
         //ImageManager necessario per salvare l'immagine
-        ImageManager imgManager = new ImageManager();
+        //ImageManager imgManager = new ImageManager();
 
         if(Marca==null || Modello==null || Prezzo==null || prezzo1==null ||  Quantita==null || Tipo==null)
             request.getRequestDispatcher("WEB-INF/error-page.jsp").forward(request, response);
@@ -99,11 +98,7 @@ public class Upload extends HttpServlet {
             FormaMobo = Short.parseShort(request.getParameter("formaMobo"));
         }
 
-        //Restituisce la posizione relativa dell'immagine salvata partendo dalla radice del server
-        //Prende in input 1:la path da "/" fino alla radice del server
-        //                2:Il file da uploadare sottoforma di file Part
-        //                3:Il nome con cui salvare il file
-        String url = imgManager.saveImage(String.valueOf(request.getServletContext().getResource("C:\\")), request.getPart("image"), Marca + Modello);
+       
         String Descrizione = request.getParameter("descrizione");
         try {
             //Carica il prodotto nal DB.
@@ -117,7 +112,7 @@ public class Upload extends HttpServlet {
                     cpu.setWattaggio(Wattaggio);
                     cpu.setFrequenza(Frequenza);
                     cpu.setN_Core(N_Core);
-                    cpu.setUrl(url);
+                    cpu.setUrl("Default/CPU.jpg");
                     cpu.setDescrizione(Descrizione);
                     CpuDAO.Upload(cpu);
                     break;
@@ -128,7 +123,7 @@ public class Upload extends HttpServlet {
                     case_.setPrezzo(Prezzo);
                     case_.setQuantita(Quantita);
                     case_.setFormaMobo(FormaMobo);
-                    case_.setUrl(url);
+                    case_.setUrl("Default/CASE.jpg");
                     case_.setDescrizione(Descrizione);
                     CaseDAO.Upload(case_);
                     break;
@@ -137,9 +132,8 @@ public class Upload extends HttpServlet {
                     diss.setMarca(Marca);
                     diss.setModello(Modello);
                     diss.setPrezzo(Prezzo);
-                    diss.setQuantita(Quantita);
-                    
-                    diss.setUrl(url);
+                    diss.setQuantita(Quantita);                   
+                    diss.setUrl("Default/Dissipatore.jpg");
                     diss.setDescrizione(Descrizione);
                     DissipatoreDAO.Upload(diss);
                     break;
@@ -150,7 +144,7 @@ public class Upload extends HttpServlet {
                     psu.setPrezzo(Prezzo);
                     psu.setQuantita(Quantita);
                     psu.setN_Watt(Wattaggio);
-                    psu.setUrl(url);
+                    psu.setUrl("Default/PSU.jpg");
                     PsuDAO.Upload(psu);
                     break;
                 case "MOBO":
@@ -163,7 +157,7 @@ public class Upload extends HttpServlet {
                     mobo.setN_RAM(N_Ram);
                     mobo.setN_USB(N_Usb);
                     mobo.setN_PCI(N_Pci);
-                    mobo.setUrl(url);
+                    mobo.setUrl("Default/MOBA.jpg");
                     mobo.setDescrizione(Descrizione);
                     MoboDAO.Upload(mobo);
                     break;
@@ -174,7 +168,7 @@ public class Upload extends HttpServlet {
                     ram.setPrezzo(Prezzo);
                     ram.setQuantita(Quantita);
                     ram.setFrequenza(Frequenza);
-                    ram.setUrl(url);
+                    ram.setUrl("Default/RAM.jpg");
                     ram.setDescrizione(Descrizione);
                     RamDAO.Upload(ram);
                     break;
@@ -185,7 +179,7 @@ public class Upload extends HttpServlet {
                     hdd.setPrezzo(Prezzo);
                     hdd.setQuantita(Quantita);
                     hdd.setMBs(MBs);
-                    hdd.setUrl(url);
+                    hdd.setUrl("Default/HDD.jpg");
                     hdd.setDescrizione(Descrizione);
                     ArchivioDatiDAO.Upload(hdd);
                     break;
@@ -196,7 +190,7 @@ public class Upload extends HttpServlet {
                     ssd.setPrezzo(Prezzo);
                     ssd.setQuantita(Quantita);
                     ssd.setMBs(MBs);
-                    ssd.setUrl(url);
+                    ssd.setUrl("Default/SSD.jpg");
                     ssd.setDescrizione(Descrizione);
                     ArchivioDatiDAO.Upload(ssd);
                     break;
@@ -209,7 +203,7 @@ public class Upload extends HttpServlet {
                     gpu.setWattaggio(Wattaggio);
                     gpu.setFrequenza(Frequenza);
                     gpu.setVRam(Vram);
-                    gpu.setUrl(url);
+                    gpu.setUrl("Default/GPU.jpg");
                     gpu.setDescrizione(Descrizione);
                     GpuDAO.Upload(gpu);
                     break;

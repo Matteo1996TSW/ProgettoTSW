@@ -159,7 +159,6 @@ function enableDefault(){
     document.getElementById("modello").disabled = false;
     document.getElementById("prezzo").disabled = false;
     document.getElementById("quantita").disabled = false;
-    document.getElementById("image").disabled = false;
     document.getElementById("descrizione").disabled = false;
 }
 
@@ -287,7 +286,7 @@ function nuovo() {
     document.getElementById("stampa").style.display="flex";
     document.getElementById("stampa").innerHTML =
         "<div class=\"instruction-header\"><h2>Per compilare i campi selezionare una tipologia di pezzo</h2></div>" +
-        "<form action=\"Upload\" method=\"post\" onsubmit=\"return validateProductUpdate()\" enctype=\"multipart/form-data\" class=\"flex-container\"'>" +
+        "<form action=\"Upload\" method=\"\" onsubmit=\"return validateProductUpdate()\" enctype=\"multipart/form-data\" class=\"flex-container\"'>" +
         //La funzione controllo() è chiamata per disabilitare i campi del form in base al tipo di prodotto scelto
         "<select name=\"tipo\" id=\"tipo\"  class=\"form-input\" onchange=\"controllo()\")>" +
         "<option value=\"none\" selected disabled hidden>Selezione un tipo</option>"+
@@ -315,8 +314,6 @@ function nuovo() {
         "<input type=\"text\" name=\"Vram\" id=\"vram\"  class=\"form-input\" placeholder=\"Quantità VRAM\" disabled/>" +
         "<input type=\"text\" name=\"W_Cpu\" id=\"w_cpu\"  class=\"form-input\" placeholder=\"Massimo watt dissipabili\" disabled/>" +
         "<input type=\"text\" name=\"formaMobo\" id=\"formaMobo\"  class=\"form-input\" placeholder=\"Formato scheda madre\" disabled/>" +
-        "<label for=\"image\">Seleziona un'immagine</label>" +
-        "<input type=\"file\" name=\"image\" id=\"image\" accept='.png, .jpeg, .jpg, .svg'  class=\"form-input\" required disabled/>" +
         "<input type=\"text\" name=\"descrizione\" id=\"descrizione\"  class=\"form-input\" placeholder=\"Descrizione\" required disabled/>" +
         "<input type=\"submit\" value=\"Invia\" class=\"form-input\"/>" +
         "</form>";

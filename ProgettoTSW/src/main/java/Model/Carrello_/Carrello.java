@@ -150,7 +150,7 @@ public class Carrello {
     public double calculateTotal(){
         double sum = 0.0;
         for(Prodotto p : carrello){
-            sum += (p.getPrezzo() * p.getQuantita());
+            sum += (p.getPrezzo());
         }
         return sum;
     }

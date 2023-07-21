@@ -208,7 +208,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                 "<div class=\"product-tumb inner-padding\">\n" +
-                                "<img src=\"" + cpu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                "<img src=\"" + cpu.getUrl() + "\" alt=\"\">\n" +
                                 "</div>\n" +
                                 "<div class=\"product-details\">\n" +
                                 "<span class=\"product-catagory\">CPU</span>\n" +
@@ -232,7 +232,7 @@
                     if (toShow) {
                          out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + case_.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + case_.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Case</span>\n" +
@@ -255,7 +255,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + dissipatore.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + dissipatore.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Dissipatori</span>\n" +
@@ -278,7 +278,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card  inner-padding\">\n" +
                                         "<div class=\"product-tumb\">\n" +
-                                            "<img src=\"" + gpu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + gpu.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">GPU</span>\n" +
@@ -301,7 +301,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + mobo.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + mobo.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Scheda madre</span>\n" +
@@ -324,7 +324,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + psu.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + psu.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Power supply unit</span>\n" +
@@ -347,7 +347,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + ram.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + ram.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">RAM</span>\n" +
@@ -370,7 +370,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb  inner-padding\">\n" +
-                                            "<img src=\"" + hdd.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + hdd.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Hard disk</span>\n" +
@@ -393,7 +393,7 @@
                     if (toShow) {
                         out.println("<div class=\"product-card\">\n" +
                                         "<div class=\"product-tumb inner-padding\">\n" +
-                                            "<img src=\"" + ssd.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                            "<img src=\"" + ssd.getUrl() + "\" alt=\"\">\n" +
                                         "</div>\n" +
                                         "<div class=\"product-details\">\n" +
                                             "<span class=\"product-catagory\">Solid state disk</span>\n" +

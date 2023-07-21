@@ -90,8 +90,8 @@
                                             "<ul class=\"info flex-container\">" +
                                                 "<li>" + c.getCarrello().get(i).getMarca() + " " + c.getCarrello().get(i).getModello() + "</li>" +
                                                 "<li>" + c.getCarrello().get(i).getQuantita() + "</li>" +
+                                                "<li>" + c.getCarrello().get(i).getPrezzo() / c.getCarrello().get(i).getQuantita()  + "</li>" +
                                                 "<li>" + c.getCarrello().get(i).getPrezzo() + "</li>" +
-                                                "<li>" + c.getCarrello().get(i).getPrezzo()*c.getCarrello().get(i).getQuantita() + "</li>" +
                                             "</ul>" +
                                         "</div>");
                         }

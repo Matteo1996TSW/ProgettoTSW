@@ -15,7 +15,6 @@ import Model.DISSIPATORE_.Dissipatore;
 import Model.DISSIPATORE_.DissipatoreDAO;
 import Model.GPU_.Gpu;
 import Model.GPU_.GpuDAO;
-import Model.ImageManager;
 import Model.MOBO_.Mobo;
 import Model.MOBO_.MoboDAO;
 import Model.PSU_.Psu;
@@ -54,51 +53,12 @@ public class Aggiorna extends HttpServlet {
         String desc = request.getParameter("desc");
         String url = request.getParameter("url");
         String tipo = request.getParameter("tipo");
-        Part image = request.getPart("image");
-        
-        System.out.println("path"+image);
+       
 
         if(id==null || marca==null || modello==null || prezzo==null || quantita==null || url==null || tipo==null)
             request.getRequestDispatcher("WEB-INF/error-page.jsp").forward(request, response);
 
-        try {
-            image = request.getPart("image");
-            System.out.println("path"+image);
-        } catch (IOException | ServletException ignored) {
-            //Non è necessario lancare eccezioni poichè in caso rimanga null
-            //significa che non abbiamo modificato l'immagine'
-        }
       
-        //Nel caso ho caricato una nuova immagine elimino la cartella e la ricreo
-        if(ImageManager.isImage(image)){
-        	
-            String rootPath = String.valueOf(request.getServletContext().getResource(fileSeparator));
-            //ImageManager necessario per salvare l'immagine
-            ImageManager imgManager = new ImageManager();
-            try{
-                imgManager.deleteImageDir(url, rootPath);
-            }catch(IOException ignored){
-
-            }
-            url = imgManager.saveImage(rootPath, image, marca+modello);
-        }
-        //Nel caso NON ho caricato una nuova immagine ma ho cambiato marca e/o modello
-        //devo rinominare la cartella
-        else{
-            Prodotto p;
-            try {
-                p = ProdottoDAO.doRetriveById(id);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            if(!p.getMarca().equals(marca) || !p.getModello().equals(modello)){
-                String rootPath = String.valueOf(request.getServletContext().getResource("/"));
-                ImageManager imgManager = new ImageManager();
-                imgManager.renameFolder(rootPath, p.getUrl(), p.getMarca(), p.getUrl(), marca, modello);
-                url = "Images"+fileSeparator+marca+modello;
-            }
-        }
-
         //Inizializza un campo a null e in caso sia stato passato ne aggiorna il valore
         Integer wattaggio = null;
         if (request.getParameter("watt") != null) {
@@ -273,6 +233,8 @@ public class Aggiorna extends HttpServlet {
         }
         HttpSession ss = request.getSession();
         ss.setAttribute("catalogo", newCatalogo);
+        
+        request.getRequestDispatcher("./WEB-INF/admin.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

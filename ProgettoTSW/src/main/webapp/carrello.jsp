@@ -73,7 +73,7 @@
                 for (Prodotto prodotto : carrelloList) {
                     out.println("<li class=\"cart-list\">" +
                                 "<div class=\"row flex-container\">\n" +
-                                    "<img src=\"" + prodotto.getUrl() + "/2.jpg\" alt=\"\">\n" +
+                                   // "<img src=\"" + prodotto.getUrl() + "\" alt=\"\">\n" +
                                     "<ul class=\"flex-item\">\n" +
                                         "<li><h3>"+ prodotto.getMarca() + " " + prodotto.getModello() +"</h3></li>\n" +
                                         "<li>\n" +
@@ -83,7 +83,7 @@
                                             "</div>" +
                                         "</li>" +
                                     "</ul>" +
-                                    "<h3 class=\"flex-item\">" + prodotto.getPrezzo() + "</h3>" +
+                                    "<h3 class=\"flex-item\">" + prodotto.getPrezzo() * prodotto.getQuantita() + "</h3>" +
                                     "<form action=\"removeCart\" method=\"GET\" id=\"remove\">" +
                                         "<input type=\"hidden\" name=\"idProdotto\" id=\"idprodotto\" class=\"" + prodotto.getID() + "\" value=\"" + prodotto.getID() +"\">" +
                                         "<input type=\"submit\" value=\"Rimuovi\" id=\"submit\">" +
