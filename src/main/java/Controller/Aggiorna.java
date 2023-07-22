@@ -226,11 +226,7 @@ public class Aggiorna extends HttpServlet {
         //Rigenera il catalogo con i nuovi prodotti
         CatalogoDAO service = new CatalogoDAO();
         Catalogo newCatalogo = new Catalogo();
-        try {
-            newCatalogo.setCatalogo(service.doRetriveAll());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        newCatalogo.setCatalogo(service.doRetriveAll());
         HttpSession ss = request.getSession();
         ss.setAttribute("catalogo", newCatalogo);
         

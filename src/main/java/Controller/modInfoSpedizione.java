@@ -36,12 +36,7 @@ public class modInfoSpedizione extends HttpServlet {
         cliente.setCitta(citta);
         cliente.setCap(cap);
 
-        //aggiono le info nel DB controllando che abbiano avuto successo
-        try {
-            success = cDAO.updateInfoSpedizioneCliente(cliente);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        success = cDAO.updateInfoSpedizioneCliente(cliente);
 
         //Se l'aggiornamento ha avuto successo aggiorno le info nella sessione
         if(success){

@@ -38,11 +38,7 @@ public class removeCart extends HttpServlet {
 
         //Quindi rimuove il pezzo dal carrello
         if(cliente != null){
-            try {
-                CarrelloDAO.delCarrelloFromComporre(carrelloSession);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            CarrelloDAO.delCarrelloFromComporre(carrelloSession);
         }
         response.sendRedirect("carrello.jsp");
     }

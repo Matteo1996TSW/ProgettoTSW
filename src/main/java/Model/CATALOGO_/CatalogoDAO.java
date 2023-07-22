@@ -31,78 +31,95 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogoDAO {
-    public List<Prodotto> doRetriveAll() throws SQLException {
-        Connection con = ConPool.getConnection();
-        PreparedStatement pdstmt = con.prepareStatement("SELECT * FROM Pezzo");
-        ResultSet rs = pdstmt.executeQuery();
-        List<Prodotto> catalogo = new ArrayList<Prodotto>();
-        while (rs.next()) {
-            String type = rs.getString(7);
-            switch (type) {
-                case "CPU": {
-                    Cpu cpu = CpuDAO.InitCpuFromRs(rs);
-                    catalogo.add(cpu);
-                    break;
-                }
-                case "MOBO": {
-                    Mobo mobo = MoboDAO.InitMoboFromRs(rs);
-                    catalogo.add(mobo);
-                    break;
-                }
-                case "CASE": {
-                    Case case_ = CaseDAO.InitCaseFromRs(rs);
-                    catalogo.add(case_);
-                    break;
-                }
-                case "DISSIPATORE": {
-                    Dissipatore diss = DissipatoreDAO.InitDissipatoreFromRs(rs);
-                    catalogo.add(diss);
-                    break;
-                }
-                case "GPU": {
-                    Gpu gpu = GpuDAO.InitGpuFromRs(rs);
-                    catalogo.add(gpu);
-                    break;
-                }
-                case "PSU": {
-                    Psu psu = PsuDAO.InitPsuFromRs(rs);
-                    catalogo.add(psu);
-                    break;
-                }
-                case "RAM": {
-                    Ram ram = RamDAO.InitRamFromRs(rs);
-                    catalogo.add(ram);
-                    break;
-                }
-                case "HDD": {
-                    Hdd hdd = HddDAO.InitHddFromRs(rs);
-                    catalogo.add(hdd);
-                    break;
-                }
-                case "SSD": {
-                    Ssd ssd = SsdDAO.InitSsdFromRs(rs);
-                    catalogo.add(ssd);
-                    break;
-                }
-                default: {
+    public List<Prodotto> doRetriveAll()  {
+        Connection con;
+		try {
+			con = ConPool.getConnection();
+			
+			PreparedStatement pdstmt = con.prepareStatement("SELECT * FROM Pezzo");
+	        ResultSet rs = pdstmt.executeQuery();
+	        List<Prodotto> catalogo = new ArrayList<Prodotto>();
+	        while (rs.next()) {
+	            String type = rs.getString(7);
+	            switch (type) {
+	                case "CPU": {
+	                    Cpu cpu = CpuDAO.InitCpuFromRs(rs);
+	                    catalogo.add(cpu);
+	                    break;
+	                }
+	                case "MOBO": {
+	                    Mobo mobo = MoboDAO.InitMoboFromRs(rs);
+	                    catalogo.add(mobo);
+	                    break;
+	                }
+	                case "CASE": {
+	                    Case case_ = CaseDAO.InitCaseFromRs(rs);
+	                    catalogo.add(case_);
+	                    break;
+	                }
+	                case "DISSIPATORE": {
+	                    Dissipatore diss = DissipatoreDAO.InitDissipatoreFromRs(rs);
+	                    catalogo.add(diss);
+	                    break;
+	                }
+	                case "GPU": {
+	                    Gpu gpu = GpuDAO.InitGpuFromRs(rs);
+	                    catalogo.add(gpu);
+	                    break;
+	                }
+	                case "PSU": {
+	                    Psu psu = PsuDAO.InitPsuFromRs(rs);
+	                    catalogo.add(psu);
+	                    break;
+	                }
+	                case "RAM": {
+	                    Ram ram = RamDAO.InitRamFromRs(rs);
+	                    catalogo.add(ram);
+	                    break;
+	                }
+	                case "HDD": {
+	                    Hdd hdd = HddDAO.InitHddFromRs(rs);
+	                    catalogo.add(hdd);
+	                    break;
+	                }
+	                case "SSD": {
+	                    Ssd ssd = SsdDAO.InitSsdFromRs(rs);
+	                    catalogo.add(ssd);
+	                    break;
+	                }
+	                default: {
 
-                }
-            }
-        }
-        return catalogo;
+	                }
+	            }
+	        }
+	        return catalogo;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+        
     }
 
     //Scala un prodotto dal db dato un id
-    public void scalaProdotto(Prodotto p) throws SQLException {
-        Connection con = ConPool.getConnection();
-        PreparedStatement pdstmt = con.prepareStatement("UPDATE Pezzo SET Quantita = Quantita - ? WHERE Id = ?");
-        pdstmt.setInt(1, p.getQuantita());
-        pdstmt.setInt(2, p.getID());
-        pdstmt.executeUpdate();
+    public void scalaProdotto(Prodotto p) {
+        Connection con;
+		try {
+			con = ConPool.getConnection();
+			
+			PreparedStatement pdstmt = con.prepareStatement("UPDATE Pezzo SET Quantita = Quantita - ? WHERE Id = ?");
+	        pdstmt.setInt(1, p.getQuantita());
+	        pdstmt.setInt(2, p.getID());
+	        pdstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
     }
 
     //Scala una lista di prodotti dal db dato un carrello
-    public void scalaProdotti(Carrello c) throws SQLException {
+    public void scalaProdotti(Carrello c) {
         CatalogoDAO service = new CatalogoDAO();
         for(Prodotto p : c.getCarrello()){
             service.scalaProdotto(p);

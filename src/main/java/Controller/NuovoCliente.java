@@ -39,39 +39,31 @@ public class NuovoCliente extends HttpServlet {
             //Hash della password
             String password = PasswordEncrypter.encryptThisString(plainTxtPassword);
 
-            try {
-                //Se un cliente con questa mail già esiste
-                if (clienteDAO.doRetrieveByMail(email) != null) {
-                    //Reindirizzo alla pagina di registrazione mostrando l'errore
-                    request.setAttribute("creation.error", "Un cliente con questa mail già esiste");
-                    request.getRequestDispatcher("CreazioneUtente.jsp").forward(request, response);
-                } else {
-                    CarrelloDAO carrelloDAO = new CarrelloDAO();
-                    Cliente c = new Cliente();
-                    c.setMail(email);
-                    c.setPass(password);
-                    c.setNickname(nikName);
-                    c.setTel(telefono);
-                    c.setVia(via);
-                    c.setProvincia(provincia);
-                    c.setCitta(citta);
-                    c.setCap(cap);
-                    try {
-                        //Aggiungi cliente ad DB
-                        clienteDAO.uploadCliente(c);
-                        //Creo un nuovo carrello nel DB
-                        int codCarrello = carrelloDAO.createCarrello();
-                        //Associo il nuovo cliente al carrello
-                        carrelloDAO.createNewOrdine(c, codCarrello);
-                        //Reindirizzo al login
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            //Se un cliente con questa mail già esiste
+			if (clienteDAO.doRetrieveByMail(email) != null) {
+			    //Reindirizzo alla pagina di registrazione mostrando l'errore
+			    request.setAttribute("creation.error", "Un cliente con questa mail già esiste");
+			    request.getRequestDispatcher("CreazioneUtente.jsp").forward(request, response);
+			} else {
+			    CarrelloDAO carrelloDAO = new CarrelloDAO();
+			    Cliente c = new Cliente();
+			    c.setMail(email);
+			    c.setPass(password);
+			    c.setNickname(nikName);
+			    c.setTel(telefono);
+			    c.setVia(via);
+			    c.setProvincia(provincia);
+			    c.setCitta(citta);
+			    c.setCap(cap);
+			    //Aggiungi cliente ad DB
+				clienteDAO.uploadCliente(c);
+				//Creo un nuovo carrello nel DB
+				int codCarrello = carrelloDAO.createCarrello();
+				//Associo il nuovo cliente al carrello
+				carrelloDAO.createNewOrdine(c, codCarrello);
+				//Reindirizzo al login
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
         }
     }
 

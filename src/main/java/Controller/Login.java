@@ -19,36 +19,27 @@ public class Login extends HttpServlet {
         ClienteDAO CDAO = new ClienteDAO();
 
         Cliente c = null;
-        //Questo try deve essere fatto prima dell'if successivo perchè la terza condizione può dare errore
-        try {
-            c = CDAO.doRetrieveByMail(mail);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            //Se mail e password sono valide controlla che la coppia sia corretta con isCorrectLogin()
-            if (mail == null || password == null || !CDAO.isCorrectLogin(mail, password)) {
-                request.setAttribute("loginErr", "Cliente non trovato o password errata");
-                //Rimanda alla pagina di login
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
-            //Se la coppia è corretta, prendi il cliente dal DB e lo metti nella sessione
-            else{
-                //Prendi Le info dal DB e crea l' oggetto cliente da tenere in sessione
-                HttpSession session = request.getSession();
-                //Setta come attributo della sessione il cliente
-                session.setAttribute("cliente", c);
-                if(c!=null)
-                    if(c.isAdministrator()) {
-                        request.getRequestDispatcher("./WEB-INF/admin.jsp").forward(request, response);
-                    }
-                else{
-                    response.sendRedirect(".");
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        c = CDAO.doRetrieveByMail(mail);
+        //Se mail e password sono valide controlla che la coppia sia corretta con isCorrectLogin()
+		if (mail == null || password == null || !CDAO.isCorrectLogin(mail, password)) {
+		    request.setAttribute("loginErr", "Cliente non trovato o password errata");
+		    //Rimanda alla pagina di login
+		    request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+		//Se la coppia è corretta, prendi il cliente dal DB e lo metti nella sessione
+		else{
+		    //Prendi Le info dal DB e crea l' oggetto cliente da tenere in sessione
+		    HttpSession session = request.getSession();
+		    //Setta come attributo della sessione il cliente
+		    session.setAttribute("cliente", c);
+		    if(c!=null)
+		        if(c.isAdministrator()) {
+		            request.getRequestDispatcher("./WEB-INF/admin.jsp").forward(request, response);
+		        }
+		    else{
+		        response.sendRedirect(".");
+		    }
+		}
     }
 
     @Override

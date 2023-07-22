@@ -38,12 +38,7 @@ public class expireCart extends HttpServlet {
         String citta = request.getParameter("citta");
         int cap = Integer.parseInt(request.getParameter("cap"));
 
-        //Scala i prodotti dal catalogo
-        try {
-            serviceCatalogo.scalaProdotti(carrelloSession);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        serviceCatalogo.scalaProdotti(carrelloSession);
         try {
             //Sceglie se aggiornare l'indirizzo oppure no e quindi invia l'ordine al DAO
             if(cliente.getVia().equals(via) && cliente.getProvincia().equals(provincia) && cliente.getCitta().equals(citta) && cliente.getCap() == cap)
@@ -62,11 +57,7 @@ public class expireCart extends HttpServlet {
         }
         //Crea un nuovo catalogo
         Catalogo newCatalogo = new Catalogo();
-        try {
-            newCatalogo.setCatalogo(serviceCatalogo.doRetriveAll());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        newCatalogo.setCatalogo(serviceCatalogo.doRetriveAll());
         //Setta i nuovi carrello e catalogo come attributi nella sessione
         session.setAttribute("catalogo", newCatalogo);
         session.setAttribute("carrello", newCarrello);

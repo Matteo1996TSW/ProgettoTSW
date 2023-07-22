@@ -55,11 +55,7 @@ public class modQuantCartDB extends HttpServlet {
 
             //Se il cliente è loggato aggiorna il carrello nel DB
             if (cliente != null) {
-                try {
-                    carrelloDAO.modCart(carrelloSessione, p);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+                carrelloDAO.modCart(carrelloSessione, p);
             }
     }
     @Override

@@ -30,12 +30,7 @@ public class updateInfoCliente extends HttpServlet {
         cliente.setNickname(nick);
         cliente.setTel(tel);
 
-        //Aggiorno le info nel DB
-        try {
-            success = cDAO.updateInfoPersonaliCliente(cliente);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        success = cDAO.updateInfoPersonaliCliente(cliente);
 
         //Se l'aggiornamento è andato a buon fine setto l'utente anche nella sessione
         if(success){

@@ -31,11 +31,7 @@ public class HomeServlet extends HttpServlet {
         CarrelloDAO serviceCarrello = new CarrelloDAO();
         Catalogo catalogo = new Catalogo();
 
-        try {
-            catalogo.setCatalogo(serviceCatalogo.doRetriveAll());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        catalogo.setCatalogo(serviceCatalogo.doRetriveAll());
 
         //Check if session is new
         if (ss.isNew()) {
@@ -53,11 +49,7 @@ public class HomeServlet extends HttpServlet {
                 Carrello carrello = (Carrello) ss.getAttribute("carrello");
                 //create a new Carrello where we put carrello from DataBase
                 Carrello carrelloDB = null;
-                try {
-                    carrelloDB = serviceCarrello.doRetriveByMailCliente(c.getMail());
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                };
+                carrelloDB = serviceCarrello.doRetriveByMailCliente(c.getMail());;
                 //If session Carrello isn't null we need to do join between session Carrello and DataBase Carrello
                 if (carrello != null) {
                     //Do join
@@ -68,12 +60,8 @@ public class HomeServlet extends HttpServlet {
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
-                    try {
-                        //Update carrello in the DB
-                        CarrelloDAO.delCarrelloFromComporre(carrello);
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
+                    //Update carrello in the DB
+					CarrelloDAO.delCarrelloFromComporre(carrello);
                     //Use Catalogo to store the session Catalogo and update the quantity
                     //Sets the quantity in catalogo as the quantity in catalogo minus the quantity in carrello
                     catalogo.aggiornaQuantita(carrello);

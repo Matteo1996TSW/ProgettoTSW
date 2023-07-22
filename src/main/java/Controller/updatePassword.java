@@ -29,12 +29,7 @@ public class updatePassword extends HttpServlet {
         assert cliente != null;
         cliente.setPassword(newPassword);
 
-        //Aggiorno la password nel DB
-        try {
-            ClienteDAO.updatePassword(cliente);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        ClienteDAO.updatePassword(cliente);
 
     }
 
