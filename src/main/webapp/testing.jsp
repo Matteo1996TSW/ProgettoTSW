@@ -1,29 +1,29 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Model.*" %>
-<%@ page import="Model.CPU_.Cpu" %>
-<%@ page import="Model.CPU_.CpuDAO" %>
-<%@ page import="Model.Archiviazione_.HDD_.Hdd" %>
-<%@ page import="Model.Archiviazione_.HDD_.HddDAO" %>
-<%@ page import="Model.MOBO_.Mobo" %>
-<%@ page import="Model.MOBO_.MoboDAO" %>
-<%@ page import="Model.RAM_.Ram" %>
-<%@ page import="Model.RAM_.RamDAO" %>
-<%@ page import="Model.Archiviazione_.SDD_.SsdDAO" %>
-<%@ page import="Model.Archiviazione_.SDD_.Ssd" %>
-<%@ page import="Model.GPU_.Gpu" %>
-<%@ page import="Model.GPU_.GpuDAO" %>
-<%@ page import="Model.PSU_.PsuDAO" %>
-<%@ page import="Model.PSU_.Psu" %>
-<%@ page import="Model.CASE_.Case" %>
-<%@ page import="Model.CASE_.CaseDAO" %>
-<%@ page import="Model.DISSIPATORE_.DissipatoreDAO" %>
-<%@ page import="Model.DISSIPATORE_.Dissipatore" %>
-<%@ page import="Model.Carrello_.Carrello" %>
-<%@ page import="Model.Carrello_.CarrelloDAO" %>
-<%@ page import="Controller.HomeServlet" %>
-<%@ page import="Model.Cliente_.Cliente" %>
-<%@ page import="Model.CATALOGO_.Catalogo" %>
+<%@ page import="model.*" %>
+<%@ page import="model.CPU_.Cpu" %>
+<%@ page import="model.CPU_.CpuDAO" %>
+<%@ page import="model.Archiviazione_.HDD_.Hdd" %>
+<%@ page import="model.Archiviazione_.HDD_.HddDAO" %>
+<%@ page import="model.MOBO_.Mobo" %>
+<%@ page import="model.MOBO_.MoboDAO" %>
+<%@ page import="model.RAM_.Ram" %>
+<%@ page import="model.RAM_.RamDAO" %>
+<%@ page import="model.Archiviazione_.SDD_.SsdDAO" %>
+<%@ page import="model.Archiviazione_.SDD_.Ssd" %>
+<%@ page import="model.GPU_.Gpu" %>
+<%@ page import="model.GPU_.GpuDAO" %>
+<%@ page import="model.PSU_.PsuDAO" %>
+<%@ page import="model.PSU_.Psu" %>
+<%@ page import="model.CASE_.Case" %>
+<%@ page import="model.CASE_.CaseDAO" %>
+<%@ page import="model.DISSIPATORE_.DissipatoreDAO" %>
+<%@ page import="model.DISSIPATORE_.Dissipatore" %>
+<%@ page import="model.Carrello_.Carrello" %>
+<%@ page import="model.Carrello_.CarrelloDAO" %>
+<%@ page import="controller.HomeServlet" %>
+<%@ page import="model.Cliente_.Cliente" %>
+<%@ page import="model.CATALOGO_.Catalogo" %>
 <%@ page import="java.nio.file.Files" %>
 <%@ page import="java.nio.file.Paths" %>
 <%@ page import="java.io.File" %>
@@ -36,7 +36,7 @@
 <%@ page import="java.io.UncheckedIOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <title>Title</title>
     <link rel = "stylesheet" type = "text/css" href = "css/style.css">

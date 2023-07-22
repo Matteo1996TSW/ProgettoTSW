@@ -1,18 +1,20 @@
-<%@ page import="Model.Prodotto" %>
-<%@ page import="Model.CATALOGO_.Catalogo" %>
-<%@ page import="Model.CPU_.Cpu" %>
-<%@ page import="Model.CASE_.Case" %>
-<%@ page import="Model.DISSIPATORE_.Dissipatore" %>
-<%@ page import="Model.PSU_.Psu" %>
-<%@ page import="Model.MOBO_.Mobo" %>
-<%@ page import="Model.RAM_.Ram" %>
-<%@ page import="Model.Archiviazione_.HDD_.Hdd" %>
-<%@ page import="Model.Archiviazione_.SDD_.Ssd" %>
-<%@ page import="Model.GPU_.Gpu" %>
-<%@ page import="Model.Cliente_.Cliente" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Prodotto" %>
+<%@ page import="model.CATALOGO_.Catalogo" %>
+<%@ page import="model.CATALOGO_.CatalogoDAO" %>
+<%@ page import="model.CPU_.Cpu" %>
+<%@ page import="model.CASE_.Case" %>
+<%@ page import="model.DISSIPATORE_.Dissipatore" %>
+<%@ page import="model.PSU_.Psu" %>
+<%@ page import="model.MOBO_.Mobo" %>
+<%@ page import="model.RAM_.Ram" %>
+<%@ page import="model.Archiviazione_.HDD_.Hdd" %>
+<%@ page import="model.Archiviazione_.SDD_.Ssd" %>
+<%@ page import="model.GPU_.Gpu" %>
+<%@ page import="model.Cliente_.Cliente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <title>Modifica Pezzo</title>
     <script src="https://code.jquery.com/jquery-git.js"></script>
@@ -25,7 +27,18 @@
 <%
     String id = request.getParameter("Id");
 	System.out.println("id getParameter: "+id);
+	
     Catalogo catalogo = (Catalogo) request.getSession().getAttribute("catalogo");
+    
+    
+    if(catalogo == null){
+    	List<Prodotto> listaProdotti = null;
+    	CatalogoDAO cat = new CatalogoDAO();
+    	listaProdotti = cat.doRetriveAll();
+    	catalogo =  new Catalogo();
+    	catalogo.setCatalogo(listaProdotti);
+    }
+    
     Prodotto p = catalogo.doRetriveById(Integer.parseInt(id));
     System.out.println("id by function: "+p.getID());
     Cliente c = (Cliente) request.getSession().getAttribute("cliente");

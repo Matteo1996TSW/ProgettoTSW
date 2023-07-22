@@ -1,11 +1,11 @@
-<%@ page import="Model.Cliente_.Cliente" %>
+<%@ page import="model.Cliente_.Cliente" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Model.CPU_.Cpu" %>
-<%@ page import="Model.Prodotto" %>
+<%@ page import="model.CPU_.Cpu" %>
+<%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
 <div class="header">
     <div class="flex-container topnav" id ="topnav">
         <div class="flex-left-item logo">
-            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo"></a>
+            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo" alt="errore"></a>
         </div>
         <a href="javascript:void(0);" class="right-buttons burger"  onclick="dropDownBurger()">&#9776;</a>
         <div class="nav flex-right-item" id="nav-list">
@@ -73,7 +73,7 @@
     <div class="wrapper flex-container">
         <div class="row flex-container">
             <div class="col left">
-                <img src="Images/pc-image2.jpg" class="left-image">
+                <img src="Images/pc-image2.jpg" class="left-image" alt="errore">
             </div>
             <div class="col right">
                 <p class="right-text">
@@ -101,7 +101,7 @@
                 </p>
             </div>
             <div class="col left">
-                <img src="Images/pc-image4.jpg" class="right-image">
+                <img src="Images/pc-image4.jpg" class="right-image" >
             </div>
         </div>
     </div>

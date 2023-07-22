@@ -1,19 +1,21 @@
-<%@ page import="Model.CPU_.Cpu" %>
-<%@ page import="Model.CASE_.Case" %>
-<%@ page import="Model.DISSIPATORE_.Dissipatore" %>
-<%@ page import="Model.GPU_.Gpu" %>
-<%@ page import="Model.CATALOGO_.Catalogo" %>
-<%@ page import="Model.Prodotto" %>
-<%@ page import="Model.Cliente_.Cliente" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.CPU_.Cpu" %>
+<%@ page import="model.CASE_.Case" %>
+<%@ page import="model.DISSIPATORE_.Dissipatore" %>
+<%@ page import="model.GPU_.Gpu" %>
+<%@ page import="model.CATALOGO_.Catalogo" %>
+<%@ page import="model.CATALOGO_.CatalogoDAO" %>
+<%@ page import="model.Prodotto" %>
+<%@ page import="model.Cliente_.Cliente" %>
 <%@ page import="java.text.NumberFormat" %>
-<%@ page import="Model.MOBO_.Mobo" %>
-<%@ page import="Model.PSU_.Psu" %>
-<%@ page import="Model.RAM_.Ram" %>
-<%@ page import="Model.Archiviazione_.HDD_.Hdd" %>
-<%@ page import="Model.Archiviazione_.SDD_.Ssd" %>
+<%@ page import="model.MOBO_.Mobo" %>
+<%@ page import="model.PSU_.Psu" %>
+<%@ page import="model.RAM_.Ram" %>
+<%@ page import="model.Archiviazione_.HDD_.Hdd" %>
+<%@ page import="model.Archiviazione_.SDD_.Ssd" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +33,7 @@
     <div class="header">
         <div class="flex-container topnav" id="topnav">
             <div class="flex-left-item logo">
-                <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo"></a>
+                <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo" alt="errore"></a>
             </div>
             <a href="javascript:void(0);" class="right-buttons burger" onclick="dropDownBurger()">&#9776;</a>
             <div class="nav flex-right-item" id="nav-list">
@@ -70,7 +72,17 @@
         int id = Integer.parseInt(request.getParameter("Id"));
         String type = request.getParameter("type");
         System.out.println("id: "+id+",type: "+type);
+        
         Catalogo catalogo = (Catalogo) session.getAttribute("catalogo");
+        
+        if(catalogo == null){
+        	List<Prodotto> listaProdotti = null;
+        	CatalogoDAO cat = new CatalogoDAO();
+        	listaProdotti = cat.doRetriveAll();
+        	catalogo =  new Catalogo();
+        	catalogo.setCatalogo(listaProdotti);
+        }
+        
         Prodotto p = catalogo.doRetriveById(id);
     %>
 

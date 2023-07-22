@@ -1,11 +1,13 @@
-<%@ page import="Model.Cliente_.Cliente" %>
-<%@ page import="Model.Prodotto" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Model.Carrello_.Carrello" %>
-<%@ page import="Model.CATALOGO_.Catalogo" %>
+<%@ page import="model.Cliente_.Cliente" %>
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Carrello_.Carrello" %>
+<%@ page import="model.CATALOGO_.Catalogo" %>
+<%@ page import="model.CATALOGO_.CatalogoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +29,7 @@
 <div class="header">
     <div class="flex-container topnav" id ="topnav">
         <div class="flex-left-item logo">
-            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo"></a>
+            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo" alt="errore"></a>
         </div>
         <a href="javascript:void(0);" class="right-buttons burger"  onclick="dropDownBurger()">&#9776;</a>
         <div class="nav flex-right-item" id="nav-list">
@@ -64,7 +66,15 @@
 <div class="main flex-container">
         <%
             Carrello carrello = (Carrello) session.getAttribute("carrello");
-            Catalogo catalogo = (Catalogo) session.getAttribute("catalogo");
+        	Catalogo catalogo = (Catalogo) session.getAttribute("catalogo");
+            
+            if(catalogo == null){
+	        	List<Prodotto> listaProdotti = null;
+	        	CatalogoDAO cat = new CatalogoDAO();
+	        	listaProdotti = cat.doRetriveAll();
+	        	catalogo =  new Catalogo();
+	        	catalogo.setCatalogo(listaProdotti);
+	        }
 
             if (!carrello.isEmpty()) {
                 List<Prodotto> carrelloList = carrello.getCarrello();

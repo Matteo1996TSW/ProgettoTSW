@@ -1,7 +1,7 @@
-<%@ page import="Model.Cliente_.Cliente" %>
+<%@ page import="model.Cliente_.Cliente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
 <div class="header">
     <div class="flex-container topnav" id="topnav">
         <div class="flex-left-item logo">
-            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo"></a>
+            <a href="index.jsp"><img src="Images/PCBuilder-logo.png" id="header-logo" alt="errore"></a>
         </div>
         <a href="javascript:void(0);" class="right-buttons burger" onclick="dropDownBurger()">&#9776;</a>
         <div class="nav flex-right-item" id="nav-list">

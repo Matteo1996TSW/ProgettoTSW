@@ -46,7 +46,7 @@ function testProv() {
 }
 
 function testVia() {
-    const cerca = /(?=.{3,100}$)^([a-zA-Z]{1,}){1}([a-zA-Z]{1,}\s)*[1-9]{1,3}$/;
+    const cerca = /^(?:[a-zA-Z]+(?:\s|$)){1,100}[1-9]\d{0,2}$/;
     if(cerca.test($("#via").val()))
         return true;
     alert('La via deve essere corredata del numero dell\'abitazione e massimo 100 caratteri es: Giacomo Matteotti 32');

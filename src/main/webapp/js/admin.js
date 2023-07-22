@@ -45,21 +45,14 @@ function validateByTipo() {
             const ncore = new RegExp('[1-9][0-9]{0,1}');
             let str = document.getElementById("n_core").value;
             return ncore.test(str);
-            break;
         case "CASE" :
             let formaMobo = /^[0-2]$/;
-            let num = /^[0-9]{1,2}$/;
             let strFormaMobo = document.getElementById("formaMobo").value;
-            let strNram = document.getElementById("n_ram").value;
-            let strNusb = document.getElementById("n_usb").value;
-            let strNpci = document.getElementById("n_pci").value;
             return formaMobo.test(strFormaMobo) //&& num.test(strNram) && num.test(strNusb) && num.test(strNpci);
-            break;
         case "DISSIPATORE" :
             let wCpu = /[1-9][0-9]{0,3}/;
             let strwCpu = document.getElementById("w_cpu").value;
             return wCpu.test(strwCpu);
-            break;
         case "GPU" :
             let wGpu = /[1-9][0-9]{0,3}/;
             let freqGpu = /^(?!0\d)\d*(\.\d+)?$/mg; //Frequenza espressa in GHz
@@ -68,7 +61,6 @@ function validateByTipo() {
             let strFreqGpu = document.getElementById("frequenza").value;
             let strvRam = document.getElementById("vram").value;
             return (wGpu.test(strwGpu) && freqGpu.test(strFreqGpu) && vRam.test(strvRam));
-            break;
         case "MOBO" :
             let forma = /[0-2]/;
             let n = /[1-9][0-9]{0,2}/;
@@ -77,35 +69,26 @@ function validateByTipo() {
             let strnPci = document.getElementById("n_pci").value;
             let strnUsb = document.getElementById("n_usb").value;
             return (forma.test(strForma) && n.test(strnRam) && n.test(strnPci) && n.test(strnUsb));
-            break;
         case "PSU" :
             let watt = /^[1-9](\d{1,4})?/;
             let strWatt = document.getElementById("wattaggio").value;
             return watt.test(strWatt);
-            break;
         case "RAM" :
             let frequenza = /^(?!0\d)\d*(\.\d+)?$/mg;
             let strFrequenza = document.getElementById("frequenza").value;
             return frequenza.test(strFrequenza);
-            break;
         case "HDD":
         case "SSD":
             let mbps = /\d{1,100}/;
             let strMbps = document.getElementById("mbs").value;
             return mbps.test(strMbps);
-            break;
         default :
             return false;
     }
-
-
-    return false;
 }
 
 function validateProductUpdate() {
-    let tipo = document.getElementById("tipo").value;
-
-    if(!(validateByTipo(tipo))){
+    if(!(validateByTipo())){
         console.error("Err: Validazione su tipo non valid");
     }
 
